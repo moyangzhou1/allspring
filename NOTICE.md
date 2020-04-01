@@ -1,4 +1,4 @@
-# allspring 项目工程说明文档
+# allspring 项目所需要的依赖的说明文件
 spring boot 2.0 整合 spring cloud
 spring boot 整合cloud 采坑
 	1. spring boot 2.0 需搭配 cloud 的 Finchley 版本更好哦！
