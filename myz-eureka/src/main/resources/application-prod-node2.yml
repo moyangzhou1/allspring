@@ -1,0 +1,8 @@
+server:
+  port: 5000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.151.10.116:5000/eureka/
+  server:
+    enable-self-preservation: false
