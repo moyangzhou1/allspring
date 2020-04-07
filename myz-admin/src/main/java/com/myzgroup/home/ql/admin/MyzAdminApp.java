@@ -1,32 +1,31 @@
-package com.myzgroup.home.ql.config.center;
+package com.myzgroup.home.ql.admin;
 
-import com.myzgroup.home.ql.config.center.util.LogUtil;
+import com.myzgroup.home.ql.basic.bean.util.LogUtil;
 import org.apache.catalina.authenticator.jaspic.AuthConfigFactoryImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.config.server.EnableConfigServer;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.security.auth.message.config.AuthConfigFactory;
+
 
 /**
  * @author Administrator
  * @version V1.0
- * @className MyzEurekaApp
- * @description: config 配置中心
- * @date 2020/4/1
+ * @className MyzAdminApp
+ * @description: admin 后端控制中心
+ * @date 2020/4/7
  **/
-@EnableDiscoveryClient
 @SpringBootApplication
-@EnableConfigServer
-@EnableEurekaServer
-public class MyzConfigerCenterApp {
+@EnableEurekaClient
+@RestController
+public class MyzAdminApp {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MyzConfigerCenterApp.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MyzAdminApp.class);
 
     public static void main( String[] args )
     {
@@ -34,8 +33,7 @@ public class MyzConfigerCenterApp {
             AuthConfigFactory.setFactory(new AuthConfigFactoryImpl());
         }
         Environment env  =  new SpringApplicationBuilder().sources(
-                MyzConfigerCenterApp.class).web(true).run(args).getEnvironment();
+                MyzAdminApp.class).web(true).run(args).getEnvironment();
         LOGGER.info(LogUtil.startupLog(env));
     }
-
 }
