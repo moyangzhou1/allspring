@@ -17,7 +17,7 @@
     <name>myz-parrent-boot</name>
 
     <properties>
-        <spring-messaging.version>4.3.6.RELEASE</spring-messaging.version>
+        <spring-messaging.version>5.2.22.RELEASE</spring-messaging.version>
     </properties>
     <dependencies>
         <dependency>
